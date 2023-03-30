@@ -5,9 +5,80 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Fraunces";
+  padding: 10px 80px 10px 80px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+menu {
+  font-family: "Barlow";
+  font-size: 10px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.logo {
+  padding: 20px 0 15px 0;
+}
+
+.hero {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.heroContainer {
+  display: flex;
+  padding-left: 20px;
+  position: relative;
+  color: #fefcf7;
+  flex-direction: column;
+  padding: 100px 55% 100px 100px;
+}
+.heroImg {
+  flex: 1;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  border-radius: 10px;
+}
+
+.heroInfo {
+  z-index: 1;
+}
+.heroInfo > h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+.heroInfo > p {
+  font-family: "Barlow";
+  line-height: 25px;
+}
+
+.createPlan {
+  margin-top: 20px;
+  font-family: "Fraunces";
+  font-size: 20px;
+  height: 56px;
+  width: 250px;
+  background-color: #0e8784;
+  border: none;
+  border-radius: 6px;
+  color: #fefcf7;
+  font-weight: 900;
 }
