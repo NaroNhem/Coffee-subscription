@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <header>
@@ -9,9 +9,9 @@ export default function Home() {
         ></img>
         <menu>
           <ul>
-            <li>HOME</li>
-            <li>ABOUT US</li>
-            <li>CREATE YOUR PLAN</li>
+            <li>{props.home}</li>
+            <li>{props.about}</li>
+            <li>{props.subscribe}</li>
           </ul>
         </menu>
       </header>
@@ -170,9 +170,9 @@ export default function Home() {
           </div>
           <div className="pages">
             <ul>
-              <li>HOME</li>
-              <li>ABOUT US</li>
-              <li>CREATE YOUR PLAN</li>
+              <li className="footerLinks">{props.home}</li>
+              <li className="footerLinks">{props.about}</li>
+              <li className="footerLinks">{props.subscribe}</li>
             </ul>
           </div>
           <div></div>
