@@ -290,3 +290,50 @@ a:hover {
 .footerLinks > a:hover {
   color: white;
 }
+
+.aboutUsBoard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 100%;
+  min-height: 400px;
+  padding-left: 5em;
+  justify-content: center;
+}
+
+.aboutInfo {
+  color: #fefcf7;
+  max-width: 40%;
+}
+
+.aboutInfo > p {
+  font-family: "Barlow";
+}
+.whiteCupImg {
+  max-width: 100%;
+  border-radius: 10px;
+  flex: 1;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  z-index: -1;
+}
+
+.commitment {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15%;
+  min-height: 5em;
+  padding: 0 3em;
+}
+
+.imgCommitment {
+  border-radius: 10px;
+}
+
+.commitment > h1 {
+  font-size: 40px;
+  font-weight: 700;
+}

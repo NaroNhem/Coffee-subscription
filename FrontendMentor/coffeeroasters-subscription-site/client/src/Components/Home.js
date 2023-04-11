@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Home(props) {
   return (
     <>
@@ -9,9 +10,9 @@ export default function Home(props) {
         ></img>
         <menu>
           <ul>
-            <li>{props.home}</li>
-            <li>{props.about}</li>
-            <li>{props.subscribe}</li>
+            <li>{<Link to="/">HOME</Link>}</li>
+            <li>{<Link to="/AboutUs"> ABOUT US</Link>}</li>
+            <li>{<Link to="/Subscribe"> CREATE YOUR PLAN</Link>}</li>
           </ul>
         </menu>
       </header>
