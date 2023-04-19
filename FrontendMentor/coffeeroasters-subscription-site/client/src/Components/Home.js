@@ -19,6 +19,7 @@ export default function Home(props) {
       <div className="heroContainer">
         <img
           src="assets/home/desktop/image-hero-coffeepress.jpg"
+          alt="hero"
           className="heroImg"
         ></img>
         <div className="heroInfo">
@@ -50,6 +51,7 @@ export default function Home(props) {
             <li>
               <img
                 src="assets/home/desktop/image-planalto.png "
+                alt="planalto"
                 className="productImage"
               />
               <h1 className="productName">Planalto</h1>
@@ -61,6 +63,7 @@ export default function Home(props) {
             <li>
               <img
                 src="assets/home/desktop/image-piccollo.png "
+                alt="piccollo"
                 className="productImage"
               />
               <h1 className="productName">Piccollo</h1>
@@ -72,6 +75,7 @@ export default function Home(props) {
             <li>
               <img
                 src="assets/home/desktop/image-danche.png "
+                alt="danche"
                 className="productImage"
               />
               <h1 className="productName">Danche</h1>
@@ -171,9 +175,9 @@ export default function Home(props) {
           </div>
           <div className="pages">
             <ul>
-              <li className="footerLinks">{props.home}</li>
-              <li className="footerLinks">{props.about}</li>
-              <li className="footerLinks">{props.subscribe}</li>
+              <li>{<Link to="/">HOME</Link>}</li>
+              <li>{<Link to="/AboutUs"> ABOUT US</Link>}</li>
+              <li>{<Link to="/Subscribe"> CREATE YOUR PLAN</Link>}</li>
             </ul>
           </div>
           <div></div>

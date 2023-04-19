@@ -1,6 +1,7 @@
 import Home from "./Components/Home";
 import AboutUs from "./Components/AboutUs";
 import Subscribe from "./Components/Subscribe";
+import { useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -11,6 +12,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const [open, setOpen] = useState(false);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
