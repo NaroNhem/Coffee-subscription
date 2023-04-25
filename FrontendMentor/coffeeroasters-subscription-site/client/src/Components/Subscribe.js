@@ -1,18 +1,46 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-export default function Subscribe(props) {
-  const [open, setOpen] = useState(false);
+import { useEffect, useState } from "react";
+import Dropdown from "./Dropdown";
 
-  const handleOpen = (state, setState) => {
-    setState(!state);
+export default function Subscribe(props) {
+  const [coffeeLike, setCoffeeLike] = useState(null);
+  const [coffeeType, setCoffeeType] = useState(null);
+  const [coffeeQuantity, setCoffeeQuantity] = useState(null);
+  const [coffeeGrind, setCoffeeGrind] = useState(null);
+  const [coffeeDeliver, setCoffeeDeliver] = useState(null);
+
+  useEffect(() => {
+    console.log(
+      coffeeLike,
+      coffeeType,
+      coffeeQuantity,
+      coffeeGrind,
+      coffeeDeliver
+    );
+  }, [coffeeLike, coffeeType, coffeeQuantity, coffeeGrind, coffeeDeliver]);
+
+  const handleCoffeeLike = (like) => {
+    setCoffeeLike(like);
   };
 
-  const arrowDirection = (direction) => {
-    return direction ? (
-      <i className="arrowUp"></i>
-    ) : (
-      <i className="arrowDown"></i>
-    );
+  const handleCoffeeType = (type) => {
+    setCoffeeType(type);
+    console.log(coffeeType);
+  };
+
+  const handleCoffeeQuantity = (quantity) => {
+    setCoffeeQuantity(quantity);
+    console.log(coffeeQuantity);
+  };
+
+  const handleCoffeeGrind = (grind) => {
+    setCoffeeGrind(grind);
+    console.log(coffeeGrind);
+  };
+
+  const handleCoffeeDeliver = (deliver) => {
+    setCoffeeDeliver(deliver);
+    console.log(coffeeDeliver);
   };
   return (
     <>
@@ -108,25 +136,31 @@ export default function Subscribe(props) {
           </li>
         </ul>
         <div className="optionSection">
-          <button onClick={() => handleOpen(open, setOpen)}>
-            <h1>
-              How do you drink your coffee?
-              {arrowDirection(open)}
-            </h1>
-          </button>
-          {open === true && <div>Hello World</div>}
-          <button onClick={handleOpen}>
-            <h1>What type of coffee?{arrowDirection(open)}</h1>
-          </button>
-          <button onClick={handleOpen}>
-            <h1>How much would you like?{arrowDirection(open)}</h1>
-          </button>
-          <button onClick={handleOpen}>
-            <h1>Want us to grind them?{arrowDirection(open)}</h1>
-          </button>
-          <button onClick={handleOpen}>
-            <h1>How often should we deliver?{arrowDirection(open)}</h1>
-          </button>
+          <Dropdown
+            coffeeCards={coffeeCards1}
+            title={"How do you like your coffee?"}
+            handleSelectedItem={handleCoffeeLike}
+          />
+          <Dropdown
+            coffeeCards={coffeeCards2}
+            title={"What type of coffee?"}
+            handleSelectedItem={handleCoffeeType}
+          />
+          <Dropdown
+            coffeeCards={coffeeCards3}
+            title={"How much would you like?"}
+            handleSelectedItem={handleCoffeeGrind}
+          />
+          <Dropdown
+            coffeeCards={coffeeCards4}
+            title={"Want us to grind them?"}
+            handleSelectedItem={handleCoffeeQuantity}
+          />
+          <Dropdown
+            coffeeCards={coffeeCards5}
+            title={"How often should we deliver?"}
+            handleSelectedItem={handleCoffeeDeliver}
+          />
         </div>
       </section>
       <footer>
@@ -162,3 +196,80 @@ export default function Subscribe(props) {
     </>
   );
 }
+const coffeeCards1 = [
+  {
+    option: "Capsule",
+    summary: "Compatible with Nespresso systems and similar brewers",
+  },
+  {
+    option: "Filter",
+    summary: "For pour over or drip methods like Aeropress, Chemex, and V60",
+  },
+  {
+    option: "Espresso",
+    summary:
+      "Dense and finely ground beans for an intense, flavorful experience",
+  },
+];
+
+const coffeeCards2 = [
+  {
+    option: "Single Origin",
+    summary:
+      "Distinct, high quality coffee from a specific family-owned farme with Nespresso systems and similar brewers",
+  },
+  {
+    option: "Decaf",
+    summary: "Just like regular coffee, except the caffeine has been removed",
+  },
+  {
+    option: "Blended",
+    summary:
+      "Combination of two or three dark roasted beans of organic coffees",
+  },
+];
+
+const coffeeCards3 = [
+  {
+    option: "250g",
+    summary: "Perfect for the solo drinker. Yields about 12 delicious cups.",
+  },
+  {
+    option: "500g",
+    summary: "Perfect option for a couple. Yields about 40 delectable cups.",
+  },
+  {
+    option: "1000g",
+    summary: "Perfect for offices and events. Yields about 90 delightful cups.",
+  },
+];
+
+const coffeeCards4 = [
+  {
+    option: "Wholebean",
+    summary: "Best choice if you cherish the full sensory experience",
+  },
+  {
+    option: "Filter",
+    summary: "For drip or pour-over coffee methods such as V60 or Aeropress",
+  },
+  {
+    option: "Cafetiére",
+    summary: "Course ground beans specially suited for french press coffee",
+  },
+];
+
+const coffeeCards5 = [
+  {
+    option: "Every week",
+    summary: "$7.20 per shipment. Includes free first-class shipping.",
+  },
+  {
+    option: "Every 2 week",
+    summary: "$9.60 per shipment. Includes free priority shipping.",
+  },
+  {
+    option: "Every month",
+    summary: "$12.00 per shipment. Includes free priority shipping.",
+  },
+];
