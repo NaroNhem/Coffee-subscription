@@ -135,7 +135,7 @@ export default function Subscribe(props) {
             </button>
           </li>
         </ul>
-        <div className="optionSection">
+        <div>
           <Dropdown
             coffeeCards={coffeeCards1}
             title={"How do you like your coffee?"}
@@ -161,6 +161,42 @@ export default function Subscribe(props) {
             title={"How often should we deliver?"}
             handleSelectedItem={handleCoffeeDeliver}
           />
+          <div className="orderSummary">
+            <p>ORDER SUMMARY</p>
+            <h1 className="order">
+              "I drink my coffee as{" "}
+              {coffeeLike === null ? (
+                <span>"_____"</span>
+              ) : (
+                <span>{coffeeLike}</span>
+              )}
+              , with a&nbsp;
+              {coffeeType === null ? (
+                <span>"_____"</span>
+              ) : (
+                <span>{coffeeType}</span>
+              )}
+              &nbsp;type of bean.&nbsp;
+              {coffeeGrind === null ? (
+                <span>"_____"</span>
+              ) : (
+                <span>{coffeeGrind}</span>
+              )}
+              &nbsp;ground ala{" "}
+              {coffeeGrind === null ? (
+                <span>"_____"</span>
+              ) : (
+                <span>{coffeeQuantity}</span>
+              )}
+              , sent to me{" "}
+              {coffeeDeliver === null ? (
+                <span>"_____"</span>
+              ) : (
+                <span>{coffeeDeliver}</span>
+              )}
+              ."
+            </h1>
+          </div>
         </div>
       </section>
       <footer>
@@ -265,7 +301,7 @@ const coffeeCards5 = [
     summary: "$7.20 per shipment. Includes free first-class shipping.",
   },
   {
-    option: "Every 2 week",
+    option: "Every 2 weeks",
     summary: "$9.60 per shipment. Includes free priority shipping.",
   },
   {
