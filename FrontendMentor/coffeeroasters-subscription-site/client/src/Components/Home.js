@@ -29,7 +29,11 @@ export default function Home(props) {
             curated artisan coffees from our best roasters delivered directly to
             your door, at your schedule.
           </p>
-          <button className="createPlan">Create your plan</button>
+          {
+            <Link to="/Subscribe">
+              <button className="createPlan">Create your plan</button>
+            </Link>
+          }
         </div>
       </div>
       <div className="collectionInfo">
@@ -162,9 +166,11 @@ export default function Home(props) {
             </p>
           </div>
         </div>
-        <button className="createPlan" id="pathBtn">
-          Create your plan
-        </button>
+        {
+          <Link to="/Subscribe">
+            <button className="createPlan">Create your plan</button>
+          </Link>
+        }
         <footer>
           <div>
             <img

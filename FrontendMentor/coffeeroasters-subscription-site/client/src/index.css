@@ -481,6 +481,7 @@ a:hover {
   margin-top: 150px;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 .highlightSection {
   display: flex;
@@ -586,8 +587,19 @@ a:hover {
   padding-left: 20px;
   line-height: 20px;
 }
-
+.optionCard:hover {
+  background-color: #fdd6ba;
+  transition: 0.2s;
+}
+.optionCard:active {
+  background-color: #0e8784;
+  color: white;
+}
 .selected {
+  background-color: #0e8784;
+  color: white;
+}
+.selected:hover {
   background-color: #0e8784;
   color: white;
 }
@@ -629,4 +641,114 @@ form {
 
 .order > span {
   color: #0e8784;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-right: 8px;
+  margin-top: 10px;
+}
+.notReady {
+  margin-top: 20px;
+  font-family: "Fraunces";
+  font-size: 20px;
+  min-height: 56px;
+  max-width: 250px;
+  border: none;
+  border-radius: 6px;
+  color: #fefcf7;
+  font-weight: 900;
+  padding: 0 2em;
+  align-self: flex-end;
+  background-color: #e2dedb;
+  pointer-events: none;
+}
+
+.createOrder:active {
+  background-color: #66d2cf;
+}
+
+.createOrder {
+  margin-top: 20px;
+  font-family: "Fraunces";
+  font-size: 20px;
+  min-height: 56px;
+  max-width: 250px;
+  border: none;
+  border-radius: 6px;
+  color: #fefcf7;
+  font-weight: 900;
+  padding: 0 2em;
+  align-self: flex-end;
+  background-color: #0e8784;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.modal {
+  max-width: 400px;
+  min-height: 450px;
+  border-radius: 8px;
+  background-color: white;
+  position: absolute;
+  bottom: -5%;
+}
+
+.modal > h1 {
+  text-align: center;
+  background-color: #333d4b;
+  color: white;
+  margin: 0;
+  padding: 2rem 0;
+  border-radius: 8px;
+}
+
+.finalSummary {
+  padding: 2rem;
+}
+.finalSummary > p {
+  font-size: 24px;
+  color: #83888f;
+  margin: 0;
+}
+.finalSummary > p > span {
+  color: #0e8784;
+}
+
+#finePrint {
+  font-family: "Barlow";
+  font-size: 16px;
+  color: #333d4b;
+  margin: 1rem 0;
+}
+
+.confirm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.confirm > p {
+  font-size: 28px;
+  color: #333d4b;
+}
+
+.confirm > button:active {
+  background-color: #66d2cf;
+}
+.confirm > button {
+  font-family: "Fraunces";
+  font-size: 16px;
+  min-height: 50px;
+  max-width: 450px;
+  border: none;
+  border-radius: 6px;
+  color: #fefcf7;
+  font-weight: 900;
+  padding: 0 2em;
+  align-self: flex-end;
+  background-color: #0e8784;
+  cursor: pointer;
+  align-self: center;
 }

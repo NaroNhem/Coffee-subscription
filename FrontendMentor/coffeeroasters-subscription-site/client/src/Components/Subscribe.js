@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Dropdown from "./Dropdown";
+import Modal from "./Modal";
 
 export default function Subscribe(props) {
   const [coffeeLike, setCoffeeLike] = useState(null);
@@ -8,40 +9,65 @@ export default function Subscribe(props) {
   const [coffeeQuantity, setCoffeeQuantity] = useState(null);
   const [coffeeGrind, setCoffeeGrind] = useState(null);
   const [coffeeDeliver, setCoffeeDeliver] = useState(null);
+  const [count, setCount] = useState(1);
+  const [modalState, setModalState] = useState(false);
+  const ref = useRef();
 
   useEffect(() => {
-    console.log(
-      coffeeLike,
-      coffeeType,
-      coffeeQuantity,
-      coffeeGrind,
-      coffeeDeliver
-    );
-  }, [coffeeLike, coffeeType, coffeeQuantity, coffeeGrind, coffeeDeliver]);
+    const checkIfClickedOutside = (e) => {
+      if (modalState && ref.current && !ref.current.contains(e.target)) {
+        setModalState(false);
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [modalState]);
 
   const handleCoffeeLike = (like) => {
     setCoffeeLike(like);
+    checkNull();
   };
 
   const handleCoffeeType = (type) => {
     setCoffeeType(type);
-    console.log(coffeeType);
+    checkNull();
   };
 
   const handleCoffeeQuantity = (quantity) => {
     setCoffeeQuantity(quantity);
-    console.log(coffeeQuantity);
+    checkNull();
   };
 
   const handleCoffeeGrind = (grind) => {
     setCoffeeGrind(grind);
-    console.log(coffeeGrind);
+    checkNull();
   };
 
   const handleCoffeeDeliver = (deliver) => {
     setCoffeeDeliver(deliver);
-    console.log(coffeeDeliver);
+    checkNull();
   };
+
+  const checkList = [
+    coffeeLike,
+    coffeeType,
+    coffeeQuantity,
+    coffeeGrind,
+    coffeeDeliver,
+  ];
+
+  const checkNull = () => {
+    checkList.map((element) => (element == null ? null : setCount(count + 1)));
+    count == 5 && setCount(5);
+  };
+
+  const modal = (e) => {
+    setModalState(true);
+    document.body.style.backgroundColor = "rgba(0,0,0,0.75)";
+  };
+
   return (
     <>
       <header>
@@ -166,37 +192,55 @@ export default function Subscribe(props) {
             <h1 className="order">
               "I drink my coffee as{" "}
               {coffeeLike === null ? (
-                <span>"_____"</span>
+                <span>_____</span>
               ) : (
                 <span>{coffeeLike}</span>
               )}
               , with a&nbsp;
               {coffeeType === null ? (
-                <span>"_____"</span>
+                <span>_____</span>
               ) : (
                 <span>{coffeeType}</span>
               )}
               &nbsp;type of bean.&nbsp;
               {coffeeGrind === null ? (
-                <span>"_____"</span>
+                <span>_____</span>
               ) : (
                 <span>{coffeeGrind}</span>
               )}
               &nbsp;ground ala{" "}
-              {coffeeGrind === null ? (
-                <span>"_____"</span>
+              {coffeeQuantity === null ? (
+                <span>_____</span>
               ) : (
                 <span>{coffeeQuantity}</span>
               )}
               , sent to me{" "}
               {coffeeDeliver === null ? (
-                <span>"_____"</span>
+                <span>_____</span>
               ) : (
                 <span>{coffeeDeliver}</span>
               )}
               ."
             </h1>
           </div>
+          <div className="buttonContainer">
+            <button
+              className={`${count == 5 ? "createOrder" : ""} notReady`}
+              onClick={modal}
+            >
+              Create my plan!
+            </button>
+          </div>
+          {modalState == true && (
+            <Modal
+              like={coffeeLike}
+              type={coffeeType}
+              quantity={coffeeQuantity}
+              grind={coffeeGrind}
+              deliver={coffeeDeliver}
+              ref={ref}
+            />
+          )}
         </div>
       </section>
       <footer>
@@ -214,7 +258,6 @@ export default function Subscribe(props) {
             <li>{<Link to="/Subscribe"> CREATE YOUR PLAN</Link>}</li>
           </ul>
         </div>
-        <div></div>
         <div>
           <ul>
             <li>

@@ -31,7 +31,9 @@ export default function Dropdown(props) {
               {coffeeCards.map((element, i) => (
                 <button
                   name={element.option}
-                  className={`${i === selected ? "selected" : ""} optionCard`}
+                  className={`${
+                    i === selected ? "selected selected:hover" : ""
+                  } optionCard`}
                   key={i}
                   onClick={(event) => {
                     event.preventDefault();

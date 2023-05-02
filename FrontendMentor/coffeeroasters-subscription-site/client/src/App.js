@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const [open, setOpen] = useState(false);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
