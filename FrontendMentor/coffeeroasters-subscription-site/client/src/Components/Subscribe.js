@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 import Modal from "./Modal";
 
@@ -11,19 +11,6 @@ export default function Subscribe(props) {
   const [coffeeDeliver, setCoffeeDeliver] = useState(null);
   const [count, setCount] = useState(1);
   const [modalState, setModalState] = useState(false);
-  const ref = useRef();
-
-  useEffect(() => {
-    const checkIfClickedOutside = (e) => {
-      if (modalState && ref.current && !ref.current.contains(e.target)) {
-        setModalState(false);
-      }
-    };
-    document.addEventListener("mousedown", checkIfClickedOutside);
-    return () => {
-      document.removeEventListener("mousedown", checkIfClickedOutside);
-    };
-  }, [modalState]);
 
   const handleCoffeeLike = (like) => {
     setCoffeeLike(like);
@@ -68,6 +55,10 @@ export default function Subscribe(props) {
     document.body.style.backgroundColor = "rgba(0,0,0,0.75)";
   };
 
+  const closeModal = () => {
+    setModalState(false);
+    document.body.style.backgroundColor = "white";
+  };
   return (
     <>
       <header>
@@ -238,7 +229,7 @@ export default function Subscribe(props) {
               quantity={coffeeQuantity}
               grind={coffeeGrind}
               deliver={coffeeDeliver}
-              ref={ref}
+              close={closeModal}
             />
           )}
         </div>

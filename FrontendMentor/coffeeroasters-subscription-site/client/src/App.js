@@ -1,7 +1,6 @@
 import Home from "./Components/Home";
 import AboutUs from "./Components/AboutUs";
 import Subscribe from "./Components/Subscribe";
-import { useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,

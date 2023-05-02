@@ -1,8 +1,8 @@
 export default function Modal(props) {
-  const { like, type, quantity, grind, deliver, ref } = props;
+  const { like, type, quantity, grind, deliver, close } = props;
 
   return (
-    <div className="modal" ref={ref}>
+    <div className="modal">
       <h1>Order Summary</h1>
       <div className="finalSummary">
         <p>
@@ -17,7 +17,13 @@ export default function Modal(props) {
         </p>
         <div className="confirm">
           <p>$14.00/ mo</p>
-          <button>Checkout</button>
+          <button
+            onClick={() => {
+              close();
+            }}
+          >
+            Checkout
+          </button>
         </div>
       </div>
     </div>
