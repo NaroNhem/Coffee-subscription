@@ -60,6 +60,7 @@ ul {
   bottom: 0%;
   border-radius: 10px;
   max-width: 100%;
+  width: 100%;
 }
 
 .heroInfo {
@@ -311,9 +312,10 @@ a:hover {
 
 .aboutInfo > p {
   font-family: "Barlow";
+  font-size: 1.5em;
 }
 .whiteCupImg {
-  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
   flex: 1;
   position: absolute;
@@ -420,7 +422,7 @@ a:hover {
 }
 
 .createAPlan > img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
   position: absolute;
   z-index: -1;
@@ -441,6 +443,7 @@ a:hover {
 
 .createHero > p {
   font-family: "Barlow";
+  font-size: 1.5em;
 }
 
 .howItWorks2 {
